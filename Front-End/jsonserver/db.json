@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "camilycami@gmail.com",
+      "password": "senha123",
+      "token": "abc123xyz456"
+    },
+    {
+      "id": "740a",
+      "email": "camily@gmail.com",
+      "password": "senha"
+    }
+  ],
+  "analyses": [
+    {
+      "imageUri": "https://example.com/images/peixe.jpg",
+      "name": "Peixe-espada",
+      "match": 92.5,
+      "id": "0"
+    }
+  ]
+}
