@@ -41,15 +41,15 @@ aquai/
         ├── requirements.txt       # Lista de dependências do projeto
         └── test_main.http         # Testes para APIs ou endpoints
     ├── Front-End
+        ├── .expo/
         ├── assets/               
         ├── jsonserver/                 
         ├── src/               
-            ├── app.json     
-            ├── index.ts           
-            ├── package-lock.json           
-            ├── package.json              
-            ├── tsconfig.json
-            └── test_main.http        
+        ├── app.json     
+        ├── index.ts           
+        ├── package-lock.json           
+        ├── package.json              
+        └── tsconfig.json       
 ├── README.md              # Documentação do projeto
     </pre>
 </section>
