@@ -26,20 +26,31 @@
     <h3>Estrutura do Projeto 💠</h3>
     <pre>
 aquai/
-├── __pycache__/           # Arquivos compilados pelo Python
-├── .idea/                 # Configurações do ambiente de desenvolvimento (opcional)
-├── .venv/                 # Ambiente virtual do Python
-├── saved_model_dir/       # Diretório para salvar modelos treinados
-├── uploads/               # Diretório para armazenar imagens enviadas
-├── .gitignore             # Arquivo para ignorar arquivos não rastreados pelo Git
-├── database.py            # Gerenciamento e armazenamento de dados
-├── dto.py                 # Data Transfer Objects (Estruturas de dados)
-├── main.py                # Ponto de entrada do aplicativo
-├── modelo_classificacao_animais.h5  # Modelo treinado em IA
-├── models.py              # Definição de modelos utilizados no projeto
+    ├── Back-End
+        ├── __pycache__/           # Arquivos compilados pelo Python
+        ├── .idea/                 # Configurações do ambiente de desenvolvimento (opcional)
+        ├── dataset/               # Diretório com imagens de treino para o modelo de IA
+        ├── saved_model_dir/       # Diretório para salvar modelos treinados
+        ├── uploads/               # Diretório para armazenar imagens enviadas
+        ├── database.py            # Gerenciamento e armazenamento de dados
+        ├── dto.py                 # Data Transfer Objects (Estruturas de dados)
+        ├── main.py                # Ponto de entrada do aplicativo
+        ├── modelo_classificacao_animais.h5  # Modelo treinado em IA
+        ├── modelo_ia.ipynb        # Script Jupyter que treina o modelo de IA e salva   
+        ├── models.py              # Definição de modelos utilizados no projeto
+        ├── requirements.txt       # Lista de dependências do projeto
+        └── test_main.http         # Testes para APIs ou endpoints
+    ├── Front-End
+        ├── assets/               
+        ├── jsonserver/                 
+        ├── src/               
+            ├── app.json     
+            ├── index.ts           
+            ├── package-lock.json           
+            ├── package.json              
+            ├── tsconfig.json
+            └── test_main.http        
 ├── README.md              # Documentação do projeto
-├── requirements.txt       # Lista de dependências do projeto
-└── test_main.http         # Testes para APIs ou endpoints
     </pre>
 </section>
 
@@ -67,7 +78,7 @@ pip install -r requirements.txt
             <pre>git clone &lt;URL do repositório&gt;</pre>
         </li>
         <li>Navegue até o diretório do projeto:
-            <pre>cd aquai</pre>
+            <pre>cd ModeloAnimaisIA</pre>
         </li>
         <li>Ative o ambiente virtual:
             <ul>
