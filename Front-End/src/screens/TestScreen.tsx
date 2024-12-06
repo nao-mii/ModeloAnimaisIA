@@ -5,7 +5,7 @@ import { analyzeImage } from 'services/testService';
 
 const TestScreen: React.FC = ({ navigation }: any) => {
   const [imageUri, setImageUri] = useState<string | null>(null);
-  const [analysisResult, setAnalysisResult] = useState<{ name: string; match: number } | null>(null);
+  const [analysisResult, setAnalysisResult] = useState<{ class: string; confidence: number } | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleImageUploadAndAnalyze = async () => {
@@ -25,7 +25,11 @@ const TestScreen: React.FC = ({ navigation }: any) => {
       setLoading(true);
 
       try {
-        const analysisData = await analyzeImage();
+        const analysisData = await analyzeImage({
+          uri: selectedImageUri,
+          type: 'image/jpeg',  // Ajuste conforme o tipo da imagem
+          name: 'image.jpg',
+        });
         setAnalysisResult(analysisData);
       } catch (error: any) {
         Alert.alert('Erro', error.message);
@@ -65,10 +69,10 @@ const TestScreen: React.FC = ({ navigation }: any) => {
       {analysisResult && (
         <>
           <Text style={styles.resultText}>
-            Resultado: <Text style={styles.resultHighlight}>{analysisResult.name}</Text>
+            Resultado: <Text style={styles.resultHighlight}>{analysisResult.class}</Text>
           </Text>
           <Text style={styles.resultText}>
-            Porcentagem de correspondência: <Text style={styles.resultHighlight}>{analysisResult.match}%</Text>
+            Confiança: <Text style={styles.resultHighlight}>{(analysisResult.confidence * 100).toFixed(2)}%</Text>
           </Text>
           <TouchableOpacity onPress={handleReset} style={styles.resetButton}>
             <Text style={styles.resetButtonText}>Fazer teste novamente</Text>
@@ -82,7 +86,7 @@ const TestScreen: React.FC = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D3B66', 
+    backgroundColor: '#0D3B66',
     padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -92,20 +96,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: '#FFFFFF', 
+    color: '#FFFFFF',
   },
   uploadPlaceholder: {
     width: 200,
     height: 200,
-    borderRadius: 16, 
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#9B5DE5', 
+    borderColor: '#9B5DE5',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1E4D77', 
+    backgroundColor: '#1E4D77',
   },
   placeholderText: {
-    color: '#FFFFFF', 
+    color: '#FFFFFF',
     textAlign: 'center',
   },
   imagePreview: {
@@ -120,12 +124,12 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   resultHighlight: {
-    color: '#9B5DE5', 
+    color: '#9B5DE5',
     fontWeight: 'bold',
   },
   resetButton: {
     marginTop: 20,
-    backgroundColor: '#4CAF50', 
+    backgroundColor: '#4CAF50',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,
@@ -139,7 +143,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 20,
-    backgroundColor: '#9B5DE5', 
+    backgroundColor: '#9B5DE5',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,
