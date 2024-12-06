@@ -78,7 +78,7 @@ pip install -r requirements.txt
             <pre>git clone &lt;URL do repositório&gt;</pre>
         </li>
         <li>Navegue até o diretório do projeto:
-            <pre>cd aquai</pre>
+            <pre>cd ModeloAnimaisIA</pre>
         </li>
         <li>Ative o ambiente virtual:
             <ul>
